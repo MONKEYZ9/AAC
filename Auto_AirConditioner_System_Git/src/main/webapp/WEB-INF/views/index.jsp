@@ -22,7 +22,6 @@
 <script type="text/javascript" src="resources/js/aac_ValidCheck.js"></script>
 </head>
 <body>
-
 	<div id="header">
 		<a href="index.do"><img src="resources/img/aac_logo.png"></a>
 	</div>

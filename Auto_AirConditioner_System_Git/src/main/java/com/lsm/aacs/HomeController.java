@@ -22,7 +22,6 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String AACSysHome(HttpServletRequest req, Temp t, Member m) {
 		tDAO.showNowWeather(req);
-		req.setAttribute("logoPage", "logoPage/logo.jsp");
 		req.setAttribute("contentPage", "contentPage/nowStatue.jsp");
 		req.setAttribute("loginPage", "loginPage/login.jsp");
 		return "index";
@@ -32,7 +31,6 @@ public class HomeController {
 	public String indexDo(HttpServletRequest req, Temp t, Member m) {
 		tDAO.showNowWeather(req);
 		if (mDAO.loginCheck(req, m)) {
-			req.setAttribute("logoPage", "logoPage/logo.jsp");
 			req.setAttribute("contentPage", "contentPage/nowStatueAfterJoin.jsp");
 			req.setAttribute("loginPage", "loginPage/showInfoLogout.jsp");
 		}
