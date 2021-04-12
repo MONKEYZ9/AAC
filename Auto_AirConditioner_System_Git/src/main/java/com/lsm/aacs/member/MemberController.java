@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lsm.aacs.DataManager;
-import com.lsm.aacs.temp.Temp;
 import com.lsm.aacs.temp.TempDAO;
 
 @Controller
@@ -24,7 +23,6 @@ public class MemberController {
 	@RequestMapping(value = "/member.join.go", method = RequestMethod.GET)
 	public String memberGoJoin(Member m, HttpServletRequest req) {
 		DataManager.getCurYear(req);
-		req.setAttribute("logoPage", "logoPage/logo.jsp");
 		req.setAttribute("contentPage", "contentPage/join.jsp");
 		req.setAttribute("loginPage", "loginPage/join_ing.jsp"); // 회원가입동안은 빈거로 내비뒀습니다.
 		return "index";
@@ -34,7 +32,6 @@ public class MemberController {
 	public String memberJoin(HttpServletRequest req, Member m) {
 		mDAO.memberJoin(req, m);
 		tDAO.showNowWeather(req);
-		req.setAttribute("logoPage", "logoPage/logo.jsp");
 		req.setAttribute("contentPage", "contentPage/nowStatue.jsp");
 		req.setAttribute("loginPage", "loginPage/login.jsp");
 		return "index";
@@ -44,11 +41,9 @@ public class MemberController {
 		tDAO.showNowWeather(req);
 		mDAO.memberlogin(req, m);
 		if (mDAO.loginCheck(req, m)) {
-			req.setAttribute("logoPage", "logoPage/logo.jsp");
 			req.setAttribute("contentPage", "contentPage/nowStatueAfterJoin.jsp");
 			req.setAttribute("loginPage", "loginPage/showInfoLogout.jsp");
 		}
-		req.setAttribute("logoPage", "logoPage/logo.jsp");
 		return "index";
 	}
 	
@@ -56,7 +51,6 @@ public class MemberController {
 	public String memberLogout(Member m, HttpServletRequest req) {
 		tDAO.showNowWeather(req);
 		mDAO.logout(req);
-		req.setAttribute("logoPage", "logoPage/logo.jsp");
 		req.setAttribute("contentPage", "contentPage/nowStatue.jsp");
 		req.setAttribute("loginPage", "loginPage/login.jsp");
 		return "index";
@@ -66,7 +60,6 @@ public class MemberController {
 	public String memberInfo(Member m, HttpServletRequest req) {
 		tDAO.showNowWeather(req);
 		mDAO.showInfo(req, m);
-		req.setAttribute("logoPage", "logoPage/logo.jsp");
 		req.setAttribute("contentPage", "contentPage/info.jsp");
 		req.setAttribute("loginPage", "loginPage/showDataSetLogout.jsp");
 		return "index";
@@ -75,7 +68,6 @@ public class MemberController {
 	public String memberInfoUpdate(Member m, HttpServletRequest req) {
 		tDAO.showNowWeather(req);
 		mDAO.updateInfo(req, m);
-		req.setAttribute("logoPage", "logoPage/logo.jsp");
 		req.setAttribute("contentPage", "contentPage/info.jsp");
 		req.setAttribute("loginPage", "loginPage/showDataSetLogout.jsp");
 		return "index";
@@ -84,7 +76,6 @@ public class MemberController {
 	public String memberDropOut(Member m, HttpServletRequest req) {
 		tDAO.showNowWeather(req);
 		mDAO.dropOut(req, m);
-		req.setAttribute("logoPage", "logoPage/logo.jsp");
 		req.setAttribute("contentPage", "contentPage/nowStatue.jsp");
 		req.setAttribute("loginPage", "loginPage/login.jsp");
 		return "index";

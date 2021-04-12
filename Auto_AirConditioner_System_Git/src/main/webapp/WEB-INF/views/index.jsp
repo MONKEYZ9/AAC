@@ -26,10 +26,6 @@
 	<div id="header">
 		<a href="index.do"><img src="resources/img/aac_logo.png"></a>
 	</div>
-
-	<div id="siteTitleArea">
-		<jsp:include page="${logoPage }"></jsp:include>
-	</div>
 	<div id="siteContentArea">
 		<jsp:include page="${contentPage }"></jsp:include>
 	</div>

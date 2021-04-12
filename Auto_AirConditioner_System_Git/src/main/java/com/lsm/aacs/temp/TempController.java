@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.lsm.aacs.member.Member;
 import com.lsm.aacs.member.MemberDAO;
 
-import oracle.net.aso.i;
-
 @Controller
 public class TempController {
 	@Autowired
@@ -25,7 +23,6 @@ public class TempController {
 		tDAO.showNowWeather(req);
 		if (mDAO.loginCheck(req, m)) {
 			tDAO.getAIDataNShowresultLogin(req, m);
-			req.setAttribute("logoPage", "logoPage/logo.jsp");
 			req.setAttribute("contentPage", "contentPage/nowStatueWhileUserSet.jsp");
 			req.setAttribute("loginPage", "loginPage/showInfoLogout.jsp");
 		}
@@ -40,7 +37,6 @@ public class TempController {
 		if (mDAO.loginCheck(req, m)) {
 			tDAO.getAIDataNShowresultLogin(req, m);
 			tDAO.regData(req, m, t);
-			req.setAttribute("logoPage", "logoPage/logo.jsp");
 			req.setAttribute("contentPage", "contentPage/nowStatueWhileUserSet.jsp");
 			req.setAttribute("loginPage", "loginPage/showInfoLogout.jsp");
 		}
