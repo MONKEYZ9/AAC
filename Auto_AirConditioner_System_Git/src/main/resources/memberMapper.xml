@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsm.aacs.member.MemberMapper">
+	<insert id="join" parameterType="com.lsm.aacs.member.Member">
+		insert into aac_member
+		values(aac_member_seq.nextval, #{aac_member_serial_number},
+		#{aac_email},
+		#{aac_password}, #{aac_sex}, #{aac_addr}, #{aac_age})
+	</insert>
+	<select id="getMemberNkNNLogin"
+		resultType="com.lsm.aacs.member.Member"
+		parameterType="com.lsm.aacs.member.Member">
+		select *
+		from aac_member
+		where aac_email = #{aac_email}
+		and aac_password = #{aac_password}
+	</select>
+	<select id="getMemberByEmail"
+		resultType="com.lsm.aacs.member.Member"
+		parameterType="com.lsm.aacs.member.Member">
+		select * from aac_member where aac_email = #{aac_email}
+	</select>
+
+	<update id="updateSerialByEmail"
+	parameterType="com.lsm.aacs.member.Member" >
+		update aac_member
+		set aac_member_serial_number = #{aac_member_serial_number}
+		where aac_email = #{aac_email}
+	</update>
+	
+	<delete id="dropOutByEmail" 
+	parameterType="com.lsm.aacs.member.Member">
+		delete from aac_member where aac_email = #{aac_email}
+	</delete>
+</mapper>

@@ -1,0 +1,118 @@
+@charset "UTF-8";
+.joinBox{
+	width: 410px;
+	height: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 80px;
+	font-size: 12pt;
+	color: #878787;
+	line-height: 12pt;
+}
+
+.joinTitle{
+	font-size: 30pt;
+	color: #606060;
+	text-align: center;
+	height: 80px;
+}
+
+.joinBox input {
+	width: 400px;
+	height: 36px;
+	margin-bottom: 10px;
+	outline: none;
+	border: none;
+	font-size: 12pt;
+	color: #878787;
+	line-height: 12pt;
+	padding-left: 10px;
+}
+
+#aac_email1 {
+	width: 210px;
+}
+
+#aac_email2 {
+    background: url("resources/img/select_pointer.png") no-repeat ;  /* 화살표 모양의 이미지 */
+	background-color: white;
+	width: 182px; /* 원하는 너비설정 */
+	height: 38px;
+	padding-left: 10px;
+	padding-right: 20px;
+    font-size: 12pt;
+	color: #878787;
+	line-height: 36px;
+    border: none;
+    outline: none;
+    border-radius: 0px; /* iOS 둥근모서리 제거 */
+    -webkit-appearance: none; /* 네이티브 외형 감추기 */
+    -moz-appearance: none;
+    appearance: none;
+
+}
+
+/* IE 10, 11의 네이티브 화살표 숨기기 */
+select::-ms-expand {
+    display: none;
+}
+
+#aac_serialBT, #aac_emailBT {
+	text-align: right;
+	color: #5b94ea;
+	font-size: 13pt;
+	text-decoration: underline;
+	margin-bottom: 7pt; 
+}
+
+#aac_serialBT:hover, #aac_emailBT:hover {
+	cursor: pointer;
+}
+
+
+fieldset {
+	margin-top: 5px;
+	margin-left: 0px;
+	border: white solid 2px;	
+	width: 384px;
+	padding-bottom: 5px; 
+	margin-bottom: 10px;
+}
+
+
+#radio1, #radio2, #radio3 {
+	font-size: 12pt;
+	line-height: 10px;
+	width: 60px;
+	height: 20px;
+	text-align: left;
+}
+
+
+.joinBox button {
+	width: 410px;
+	height: 40px;
+	background-color: #5b94ea;
+	color: white;
+	font-size: 14pt;
+	outline: none;
+	border: none;
+	transition: all 1s ease;
+}
+.joinBox button:hover{
+	cursor: pointer;
+	text-decoration: underline;
+	background-color: #0751cc;
+}
+
+
+
+
+
+
+
+
+
+
+
+

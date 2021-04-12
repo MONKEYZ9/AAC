@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsm.aacs.temp.TempMapper">
+	<select id="getTempNkNNJoin" resultType="com.lsm.aacs.temp.Temp"
+		parameterType="com.lsm.aacs.member.Member">
+		select aac_serial_number, aac_temp, aac_humidity,
+		aac_statue
+		from aac_tempData
+		where aac_serial_number in (
+		select
+		aac_member_serial_number
+		from aac_member
+		where aac_member_serial_number
+		= #{aac_member_serial_number}
+		)
+	</select>
+	<select id="getTempNkNNLogin"
+		resultType="com.lsm.aacs.temp.Temp"
+		parameterType="com.lsm.aacs.member.Member">
+		select
+		aac_serial_number, aac_temp, aac_humidity,
+		aac_statue
+		from aac_tempData
+		where aac_serial_number in (
+		select
+		aac_member_serial_number
+		from aac_member
+		where aac_member_serial_number
+		= #{aac_member_serial_number}
+		)
+	</select>
+	<insert id="regTempkNN" parameterType="com.lsm.aacs.temp.Temp">
+		insert into aac_tempData
+		values(aac_tempData_seq.nextval, #{aac_serial_number},
+		#{aac_temp},
+		#{aac_humidity}, #{aac_statue})
+	</insert>
+	<select id="checkSerial" parameterType="com.lsm.aacs.temp.Temp"
+		resultType="com.lsm.aacs.temp.Temp">
+		select * from aac_tempData where aac_serial_number =
+		#{aac_serial_number}
+	</select>
+
+</mapper>
